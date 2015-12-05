@@ -1,8 +1,8 @@
 {
   "name": "googlish",
-  "version": "0.0.3",
+  "version": "0.0.6",
   "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "clean": "rimraf dist",
     "test": "mocha --opts mocha.opts",

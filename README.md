@@ -1,6 +1,8 @@
 # Googlish
 
-Enter a Google search style query and it will return a test function that returns true when it input satisfies the query. Works with double and single quoted inner strings.
+Enter a Google search style query and it will return a test function that returns true when its input satisfies the query.
+
+Works with double and single quoted inner strings:
 
 ```javascript
 const test = googlish('over fox "lazy dog"')
