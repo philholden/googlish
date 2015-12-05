@@ -1,19 +1,23 @@
 {
   "name": "googlish",
-  "version": "1.0.0",
+  "version": "0.0.3",
   "description": "",
   "main": "index.js",
   "scripts": {
     "clean": "rimraf dist",
     "test": "mocha --opts mocha.opts",
     "test:watch": "mocha --opts mocha.opts --watch --reporter min",
-    "build:dist": "NODE_ENV=production node node_modules/webpack/bin/webpack.js -p --config webpack.production.config.js",
-    "build": "npm run clean && npm run build:dist",
-    "lint": "eslint src"
+    "build": "NODE_ENV=production babel src --out-dir lib",
+    "lint": "eslint src",
+    "prepublish": "npm run lint && npm run test && npm run clean && npm run build"
   },
   "author": {
     "name": "philholden",
     "url": "https://twitter.com/phil_m_holden"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/philholden/googlish"
   },
   "license": "ISC",
   "devDependencies": {
