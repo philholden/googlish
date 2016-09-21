@@ -4,7 +4,7 @@ const googlish = (
   caseSensitive = false
 ) => {
   const inquotes = /(["'])(\\\1|.)*?\1/g
-  const words = /[\w\d]+/g
+  const words = /[^\s"']+/g
   const quoted = query.match(inquotes) || []
   const rest = query.replace(inquotes, '').match(words) || []
   const trim = (s) => s.substr(1, s.length - 2)

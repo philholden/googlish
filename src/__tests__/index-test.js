@@ -24,22 +24,22 @@ describe('googlish', function () {
     expect(test(haystack)).toBe(true)
   })
 
-  it('should be match quoted single strings', function () {
+  it('should match quoted single strings', function () {
     let test = googlish('the \'quick brown\'')
     expect(test(haystack)).toBe(true)
   })
 
-  it('should be fail if quoted single strings not together', function () {
+  it('should fail if quoted single strings not together', function () {
     let test = googlish('the \'quick fox\'')
     expect(test(haystack)).toBe(false)
   })
 
-  it('should be match double quoted strings', function () {
+  it('should match double quoted strings', function () {
     let test = googlish('the "quick brown\"')
     expect(test(haystack)).toBe(true)
   })
 
-  it('should be fail if double quoted strings not together', function () {
+  it('should fail if double quoted strings not together', function () {
     let test = googlish('the "quick fox"')
     expect(test(haystack)).toBe(false)
   })
@@ -56,6 +56,18 @@ describe('googlish', function () {
     let test2 = googlish('over jumps quick fox', false, true)
     expect(test1(haystack)).toBe(true)
     expect(test2(haystack)).toBe(false)
+  })
+
+  it('should match chinese words', function () {
+    let chinese = '地是空虛混沌．淵面黑暗．神的靈運行在水面上。'
+    let test1 = googlish('虛混 黑暗')
+    expect(test1(chinese)).toBe(true)
+  })
+
+  it('should no match chinese words', function () {
+    let chinese = '地是空虛混沌．淵面黑暗．神的靈運行在水面上。'
+    let test1 = googlish('虛混空 黑暗')
+    expect(test1(chinese)).toBe(false)
   })
 
 
